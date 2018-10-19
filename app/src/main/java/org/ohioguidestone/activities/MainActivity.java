@@ -1,7 +1,9 @@
-package org.ohioguidestone;
+package org.ohioguidestone.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import org.ohioguidestone.R;
 
 public class MainActivity extends Activity {
 
