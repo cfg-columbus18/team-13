@@ -25,8 +25,12 @@ public class MainActivity extends Activity {
             transaction.add(R.id.onboarding_fragment_holder, OnboardNameFragment.newInstance());
             transaction.commit();
         } else {
-            TextView statusCheckText = findViewById(R.id.how_are_you_text);
-            statusCheckText.setVisibility(View.VISIBLE);
+            enableMainLayout();
         }
+    }
+
+    public void enableMainLayout() {
+        TextView statusCheckText = findViewById(R.id.how_are_you_text);
+        statusCheckText.setVisibility(View.VISIBLE);
     }
 }

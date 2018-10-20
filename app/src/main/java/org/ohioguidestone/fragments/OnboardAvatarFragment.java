@@ -1,14 +1,18 @@
 package org.ohioguidestone.fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.activities.MainActivity;
 import org.ohioguidestone.adapter.AvatarAdapter;
 import org.ohioguidestone.models.Avatar;
 import org.ohioguidestone.models.BundleKeys;
@@ -36,7 +40,7 @@ public class OnboardAvatarFragment extends Fragment {
         avatarView.setAdapter(avatarAdapter);
         avatarView.setLayoutManager(new GridLayoutManager(getActivity(), 5));
 
-        newUser = (UserModel) savedInstanceState.getSerializable(BundleKeys.USER_DATA_BUNDLE_KEY);
+//        newUser = (UserModel) savedInstanceState.getSerializable(BundleKeys.USER_DATA_BUNDLE_KEY);
 
         return fragmentView;
     }
@@ -68,7 +72,17 @@ public class OnboardAvatarFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        Button continueButton = fragmentView.findViewById(R.id.onboarding_avatar_continue_btn);
+        continueButton.setOnClickListener((view) -> {
+            FragmentManager manager = getActivity().getFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
 
+            transaction.remove(this);
+            transaction.commit();
+            ((MainActivity) getActivity()).enableMainLayout();
+
+            //TODO save user data in sharedpreferences
+        });
     }
 
 }
