@@ -11,7 +11,7 @@ import org.ohioguidestone.R;
 import org.ohioguidestone.application.MindfulApplication;
 import org.ohioguidestone.fragments.OnboardNameFragment;
 
-public class MainActivity extends Activity implements OnboardNameFragment.NavigateToAvatarListener {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +28,5 @@ public class MainActivity extends Activity implements OnboardNameFragment.Naviga
             TextView statusCheckText = findViewById(R.id.how_are_you_text);
             statusCheckText.setVisibility(View.VISIBLE);
         }
-    }
-
-
-    @Override
-    public void navigateToAvatarFragment() {
-
     }
 }
