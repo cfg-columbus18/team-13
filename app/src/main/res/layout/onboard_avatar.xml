@@ -24,6 +24,7 @@
         android:textStyle="bold"
         android:textSize="24sp"
         />
+
     <ImageView
         android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_001_dog"
