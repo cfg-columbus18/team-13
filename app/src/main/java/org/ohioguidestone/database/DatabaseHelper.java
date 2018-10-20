@@ -8,7 +8,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "guidestone.db";
     private static final int DATABASE_VERSION = 1;
 
-    public DatabaseHelper(Context context) {
+    private static DatabaseHelper instance;
+
+    public static void createInstance(Context context) {
+        instance = new DatabaseHelper(context);
+    }
+
+    public static DatabaseHelper getInstance() {
+        return instance;
+    }
+
+    private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -23,6 +33,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int j) {
         onCreate(db);
     }
-
-
 }

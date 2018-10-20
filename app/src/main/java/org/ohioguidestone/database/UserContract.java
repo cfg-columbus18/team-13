@@ -10,5 +10,6 @@ public final class UserContract {
     public static class UserEntry implements BaseColumns {
         // database contract goes here, see
         // https://developer.android.com/training/data-storage/sqlite
+
     }
 }
