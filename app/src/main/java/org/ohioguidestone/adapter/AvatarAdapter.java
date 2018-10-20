@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import org.ohioguidestone.R;
 import org.ohioguidestone.models.Avatar;
+import org.ohioguidestone.viewhelper.RecyclerViewClickListener;
 
 import java.util.List;
 
@@ -47,10 +48,7 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarItem
         return avatarList.size();
     }
 
-    public interface RecyclerViewClickListener {
 
-        void onClick(View view, int position);
-    }
 
     public final static class AvatarItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private RecyclerViewClickListener mListener;

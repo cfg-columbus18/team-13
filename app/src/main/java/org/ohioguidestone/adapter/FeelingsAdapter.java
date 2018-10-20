@@ -8,15 +8,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.viewhelper.RecyclerViewClickListener;
 
 import java.util.List;
 
 public class FeelingsAdapter extends RecyclerView.Adapter<FeelingsAdapter.FeelingViewHolder> {
 
     private List<String> feelings;
+    private RecyclerViewClickListener mListener;
 
-    public FeelingsAdapter(List<String> feelings) {
+
+    public FeelingsAdapter(List<String> feelings, RecyclerViewClickListener listener) {
         this.feelings = feelings;
+        this.mListener = listener;
+
     }
 
     @Override
@@ -25,7 +30,7 @@ public class FeelingsAdapter extends RecyclerView.Adapter<FeelingsAdapter.Feelin
         View itemView = LayoutInflater
                 .from(viewGroup.getContext())
                 .inflate(R.layout.feeling_item, viewGroup, false);
-        return new FeelingViewHolder(itemView);
+        return new FeelingViewHolder(itemView, mListener);
     }
 
     @Override
@@ -39,12 +44,20 @@ public class FeelingsAdapter extends RecyclerView.Adapter<FeelingsAdapter.Feelin
         return feelings.size();
     }
 
-    public final static class FeelingViewHolder extends RecyclerView.ViewHolder {
+    public final static class FeelingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView feelingsView;
+        private RecyclerViewClickListener mListener;
 
-        public FeelingViewHolder(View itemView) {
+
+        public FeelingViewHolder(View itemView, RecyclerViewClickListener listener) {
             super(itemView);
             feelingsView = itemView.findViewById(R.id.feelings_item_view);
+            mListener = listener;
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(view, getAdapterPosition());
         }
     }
 }
