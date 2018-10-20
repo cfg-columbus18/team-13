@@ -10,7 +10,7 @@
         android:id="@+id/onboarding_fragment_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
     <TextView
         android:id="@+id/how_are_you_text"
@@ -20,14 +20,15 @@
         android:layout_margin="30dp"
         android:layout_gravity="center"
         android:textSize="26dp"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/feelings_list_view"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/feelings_continue_button"
@@ -35,7 +36,8 @@
         android:layout_margin="8dp"
         android:layout_gravity="center|bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

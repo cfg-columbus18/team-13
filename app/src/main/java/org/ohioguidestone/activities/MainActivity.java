@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.ohioguidestone.R;
@@ -40,7 +41,11 @@ public class MainActivity extends Activity {
 
     public void enableMainLayout() {
         TextView statusCheckText = findViewById(R.id.how_are_you_text);
+        FrameLayout fragmentHolder = findViewById(R.id.onboarding_fragment_holder);
+
+
         statusCheckText.setVisibility(View.VISIBLE);
+
 
         List<String> feelings = new ArrayList<>();
 
@@ -60,6 +65,7 @@ public class MainActivity extends Activity {
         feelings.add("Irritable");
 
         RecyclerView feelingsRecyclerView = findViewById(R.id.feelings_list_view);
+        feelingsRecyclerView.setVisibility(View.VISIBLE);
         FeelingsAdapter feelingsAdapter = new FeelingsAdapter(feelings);
 
         feelingsRecyclerView.setAdapter(feelingsAdapter);
