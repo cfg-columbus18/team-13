@@ -1,5 +1,7 @@
 package org.ohioguidestone.activities;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -8,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.models.Activities;
 import org.w3c.dom.Text;
+
+import io.realm.Realm;
 
 public class ActivityActivity extends Activity {
 
@@ -18,6 +23,10 @@ public class ActivityActivity extends Activity {
         setContentView(R.layout.activity_activity);
 
         //Get info from intent for the activity
+        Intent intent = getIntent();
+        String activityName = intent.getStringExtra("name");
+        String activityImage = intent.getStringExtra("image");
+        String activityDescription = intent.getStringExtra("description");
 
         ImageView heartImage = (ImageView) findViewById(R.id.activityHeart);
         heartImage.setOnClickListener(view->{
@@ -25,17 +34,18 @@ public class ActivityActivity extends Activity {
         });
 
         TextView title = (TextView) findViewById(R.id.activityTitle);
-        title.setText(""); //set title based on data from intent
+        title.setText(activityName); //set title based on data from intent
 
         ImageView image = (ImageView) findViewById(R.id.activityImage);
-        //image.setImageBitmap();
-        //or
-        //image.setImageDrawable();
+        Resources resources = this.getResources();
+        final int imageId = getResources().getIdentifier(activityImage, "drawable", this.getPackageName());
+        image.setImageDrawable(resources.getDrawable(imageId)); //set image based on data from intent
 
-        TextView description = (TextView) findViewById(R.id.activityDescription);
-        description.setText(""); //set description based on data from intent
 
-        TextView minuteView = (TextView) findViewById(R.id.activityCompletedTime);
+        TextView description = findViewById(R.id.activityDescription);
+        description.setText(activityDescription); //set description based on data from intent
+
+        TextView minuteView = findViewById(R.id.activityCompletedTime);
         minuteView.setText("0");
 
         Button decreaseTime = (Button) findViewById(R.id.activityDecreaseTime);
@@ -57,6 +67,10 @@ public class ActivityActivity extends Activity {
             int minutes = Integer.parseInt(minuteView.getText().toString());
 
             //store minutes and activity info
+
+
+            Intent intent1 = new Intent(view.getContext(), HomeActivity.class);
+            startActivity(intent1);
         });
     }
 
