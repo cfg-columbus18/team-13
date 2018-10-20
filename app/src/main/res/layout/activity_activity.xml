@@ -4,58 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
     android:orientation="vertical"
-    android:background="#0aa86e"
     tools:context="org.ohioguidestone.activities.ActivityActivity">
 
     <ImageView
-        android:layout_gravity="right"
         android:id="@+id/activityHeart"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="right" />
+
     <TextView
         android:id="@+id/activityTitle"
-        android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="Placeholder for title"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Placeholder for title"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/activityImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-     />
+        android:layout_gravity="center" />
+
     <TextView
         android:id="@+id/activityDescription"
-        android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Placeholder for activity description"/>
+        android:layout_margin="10dp"
+        android:text="Placeholder for activity description" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:text="Time Spent"/>
+        android:text="Time Spent"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity=""
-            android:text="Minutes"/>
+            android:text="Minutes" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,54 +69,53 @@
         android:orientation="horizontal">
 
         <Button
-            android:backgroundTint="#e1eeef"
             android:id="@+id/activityDecreaseTime"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="-5"
-            />
+            android:layout_weight="1"
+            android:backgroundTint="#e1eeef"
+            android:text="-5" />
+
         <TextView
-            android:textColor="#05c0ff"
             android:id="@+id/activityCompletedTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="3"
             android:gravity="center"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical"
-            android:text="0"/>
+            android:text="0"
+            android:textColor="#444"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <Button
-            android:backgroundTint="#e1eeef"
             android:id="@+id/activityIncreaseTime"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="+5"
-            />
+            android:layout_weight="1"
+            android:backgroundTint="#e1eeef"
+            android:text="+5" />
 
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
         <Button
-            android:layout_alignParentBottom="true"
-            android:backgroundTint="#024dfc"
-            android:layout_margin="16dp"
             android:id="@+id/activitySubmit"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="right"
-            android:text="Submit"
-            />
+            android:layout_margin="16dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#024dfc"
+            android:text="Submit" />
     </RelativeLayout>
-
-
 
 
 </LinearLayout>
