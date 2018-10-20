@@ -7,6 +7,8 @@
     <string name="preference_file_key">org.ohioguidestone.mindful</string>
     <string name="saved_name_key">org.ohioguidestone.mindful.user.name</string>
     <string name="saved_avatar_key">org.ohioguidestone.mindful.avatar</string>
+
     <string name="saved_user_created_key">org.ohioguidestone.mindful.user.exists</string>
 
+    <string name="user_data_bundle_key">USER_DATA</string>
 </resources>
