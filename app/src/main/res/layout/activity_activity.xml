@@ -101,7 +101,7 @@
             android:backgroundTint="#024dfc"
             android:layout_margin="16dp"
             android:id="@+id/activitySubmit"
-            android:layout_width="match_parent  "
+            android:layout_width="match_parent"
             android:layout_marginTop="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
