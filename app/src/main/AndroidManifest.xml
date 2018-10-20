@@ -17,5 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.ActivityActivity"
+            android:label="@string/title_activity_activity" />
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/title_activity_home" />
     </application>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
 </manifest>

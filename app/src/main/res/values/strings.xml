@@ -5,5 +5,11 @@
     <string name="title_activity_onboard_picture">OnboardPicture</string>
     <string name="title_activity_onboard_contacts">OnboardContacts</string>
     <string name="title_activity_onboard_avatar">OnboardAvatar</string>
+<<<<<<< HEAD
     -->
+=======
+    <string name="title_activity_page">ActivityPage</string>
+    <string name="title_activity_activity">ActivityActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+>>>>>>> 6bf704ce831c62fb54e095402640b8cc687ad3df
 </resources>
