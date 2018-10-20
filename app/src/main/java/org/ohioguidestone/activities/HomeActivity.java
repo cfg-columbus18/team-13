@@ -34,7 +34,7 @@ public class HomeActivity extends Activity {
         String name = sharedPref.getString(getString(R.string.saved_name_key), "Boom Shaka");
         ((TextView) findViewById(R.id.userName)).setText(name);
 
-        Realm realm = ((MindfulApplication) this.getApplication()).realm;
+        Realm realm = Realm.getDefaultInstance();
         List<Activities> activities = realm.where(Activities.class).findAll();
         Activities x = ((RealmResults<Activities>) activities).first();
 

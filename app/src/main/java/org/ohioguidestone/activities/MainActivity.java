@@ -19,12 +19,12 @@ public class MainActivity extends Activity implements OnboardNameFragment.Naviga
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Realm realm = ((MindfulApplication) this.getApplication()).realm;
-        realm.beginTransaction();
-        Activities activity = realm.createObject(Activities.class);
-        activity.setName("This is very fancy");
-        activity.setDescription("Why would I ever do this ?");
-        realm.commitTransaction();
+        Realm realm = Realm.getDefaultInstance();
+//        realm.beginTransaction();
+//        Activities activity = realm.createObject(Activities.class);
+//        activity.setName("This is very fancy");
+//        activity.setDescription("Why would I ever do this ?");
+//        realm.commitTransaction();
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
 
