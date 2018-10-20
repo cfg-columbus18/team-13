@@ -18,16 +18,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.OnboardName"
+            android:name=".fragments.OnboardNameFragment"
             android:label="@string/title_activity_onboard_name" />
         <activity
-            android:name=".activities.OnboardPicture"
+            android:name=".fragments.OnboardPictureFragment"
             android:label="@string/title_activity_onboard_picture" />
         <activity
-            android:name=".activities.OnboardContacts"
+            android:name=".fragments.OnboardContactsFragment"
             android:label="@string/title_activity_onboard_contacts" />
         <activity
-            android:name=".activities.OnboardAvatar"
+            android:name=".fragments.OnboardAvatarFragment"
             android:label="@string/title_activity_onboard_avatar"></activity>
     </application>
 
