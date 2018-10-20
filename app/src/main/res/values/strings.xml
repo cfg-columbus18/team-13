@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Mindful</string>
+    <!-- not sure if we need these strings or not
     <string name="title_activity_onboard_name">OnboardName</string>
     <string name="title_activity_onboard_picture">OnboardPicture</string>
     <string name="title_activity_onboard_contacts">OnboardContacts</string>
     <string name="title_activity_onboard_avatar">OnboardAvatar</string>
+    -->
 </resources>

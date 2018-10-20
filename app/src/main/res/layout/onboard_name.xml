@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     tools:context="org.ohioguidestone.fragments.OnboardNameFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is your name"/>
+
 </android.support.constraint.ConstraintLayout>

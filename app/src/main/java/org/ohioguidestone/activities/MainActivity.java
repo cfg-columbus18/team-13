@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.add(R.id.onboarding_fragment_holder, OnboardNameFragment.newInstance());
+            transaction.commit();
         } else {
 
         }

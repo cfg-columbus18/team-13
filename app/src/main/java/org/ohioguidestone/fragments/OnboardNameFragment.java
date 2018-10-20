@@ -12,13 +12,13 @@ import org.ohioguidestone.fragments.OnboardAvatarFragment;
 public class OnboardNameFragment extends Fragment {
     private View fragmentView;
 
-    public static OnboardAvatarFragment newInstance() {
-        return new OnboardAvatarFragment();
+    public static OnboardNameFragment newInstance() {
+        return new OnboardNameFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragmentView = inflater.inflate(R.layout.onboard_name, container);
+        fragmentView = inflater.inflate(R.layout.onboard_name, container, false);
         return fragmentView;
     }
 }

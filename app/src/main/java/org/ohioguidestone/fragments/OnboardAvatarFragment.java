@@ -17,7 +17,7 @@ public class OnboardAvatarFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragmentView = inflater.inflate(R.layout.onboard_avatar, container);
+        fragmentView = inflater.inflate(R.layout.onboard_avatar, container, false);
         return fragmentView;
     }
 }
