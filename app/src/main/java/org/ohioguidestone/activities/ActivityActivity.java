@@ -51,7 +51,7 @@ public class ActivityActivity extends Activity {
         Button decreaseTime = (Button) findViewById(R.id.activityDecreaseTime);
         decreaseTime.setOnClickListener(view->{
             int val = Integer.parseInt(minuteView.getText().toString());
-            val -= 5;
+            val = val > 5 ? val - 5 : val;
             minuteView.setText(String.valueOf(val));
         });
 
