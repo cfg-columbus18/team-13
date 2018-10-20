@@ -1,6 +1,8 @@
 package org.ohioguidestone.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -56,11 +58,14 @@ public class OnboardNameFragment extends Fragment {
             newUser.setName(nameField.getText().toString());
             navigateToAvatarFragment();
         });
-        
     }
 
+    public interface NavigateToAvatarListener {
+        void navigateToAvatarFragment();
+    }
 
     public void navigateToAvatarFragment() {
+        FragmentManager manager = ((Activity) getContext()).getFragmentManager();
 
     }
 

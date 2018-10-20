@@ -9,7 +9,7 @@ import org.ohioguidestone.R;
 import org.ohioguidestone.application.MindfulApplication;
 import org.ohioguidestone.fragments.OnboardNameFragment;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnboardNameFragment.NavigateToAvatarListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +25,11 @@ public class MainActivity extends Activity {
         } else {
 
         }
+    }
+
+
+    @Override
+    public void navigateToAvatarFragment() {
+
     }
 }
