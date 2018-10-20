@@ -3,6 +3,8 @@ package org.ohioguidestone.fragments;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,6 +28,7 @@ import java.util.List;
 public class OnboardAvatarFragment extends Fragment {
     private View fragmentView;
     private UserModel newUser;
+    private int currentAvatar = R.drawable.ic_001_dog;
     private int[] avatarData = new int[] {
             R.drawable.ic_001_dog,
             R.drawable.ic_002_bird,
@@ -86,12 +89,16 @@ public class OnboardAvatarFragment extends Fragment {
         continueButton.setOnClickListener((view) -> {
             FragmentManager manager = getActivity().getFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-
+            SharedPreferences sharedPref = this.getActivity().getSharedPreferences(
+                    getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(getString(R.string.saved_avatar_key), getResources().getResourceEntryName(currentAvatar));
+            editor.putBoolean(getString(R.string.saved_user_created_key), true);
+            editor.commit();
             transaction.remove(this);
             transaction.commit();
             ((MainActivity) getActivity()).enableMainLayout();
 
-            //TODO save user data in sharedpreferences
         });
     }
 

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.text.Editable;
@@ -56,20 +58,18 @@ public class OnboardNameFragment extends Fragment {
             });
 
         continueButton.setOnClickListener((view) -> {
-            newUser = new UserModel();
-            newUser.setName(nameField.getText().toString());
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(BundleKeys.USER_DATA_BUNDLE_KEY, newUser);
-
-            navigateToAvatarFragment(bundle);
+            SharedPreferences sharedPref = this.getActivity().getSharedPreferences(
+                    getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(getString(R.string.saved_name_key), nameField.getText().toString());
+            editor.commit();
+            navigateToAvatarFragment();
         });
     }
 
-    public void navigateToAvatarFragment(Bundle userData) {
+    public void navigateToAvatarFragment() {
         FragmentManager manager = getActivity().getFragmentManager();
         OnboardAvatarFragment fragment = OnboardAvatarFragment.newInstance();
-
-        fragment.setArguments(userData);
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.onboarding_fragment_holder, fragment);

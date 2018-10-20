@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -35,10 +36,13 @@ public class HomeActivity extends Activity {
 
         SharedPreferences sharedPref = this.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(getString(R.string.saved_name_key), "Jimmy Johns");
-        editor.commit();
-        String name = sharedPref.getString(getString(R.string.saved_name_key), "Boom Shaka");
+        String name = sharedPref.getString(getString(R.string.saved_name_key), "Johnny Appleseed");
+        String avatarIcon = sharedPref.getString(getString(R.string.saved_avatar_key), getResources().getResourceEntryName(R.drawable.ic_001_dog));
+        int avatarResource = getResources().getIdentifier(avatarIcon, "drawable", getPackageName());
+
+        ImageView profileIcon = (ImageView)findViewById(R.id.userImage);
+        profileIcon.setImageResource(avatarResource);
+        
         ((TextView) findViewById(R.id.userName)).setText(name);
 
         //choose activities from database based on preferences
