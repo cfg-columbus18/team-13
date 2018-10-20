@@ -65,6 +65,7 @@
             android:backgroundTint="#11bf2b"
             android:id="@+id/activityDecreaseTime"
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="-5"
@@ -75,6 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:layout_weight="3"
+            android:gravity="center"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:text="0"/>
@@ -82,22 +85,30 @@
             android:backgroundTint="#11bf2b"
             android:id="@+id/activityIncreaseTime"
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="+5"
             />
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="#024dfc"
+            android:layout_margin="16dp"
+            android:id="@+id/activitySubmit"
+            android:layout_width="match_parent  "
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Submit"
+            />
+    </RelativeLayout>
 
-    <Button
-        android:backgroundTint="#024dfc"
-        android:id="@+id/activitySubmit"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Submit"
-        />
 
 
 
