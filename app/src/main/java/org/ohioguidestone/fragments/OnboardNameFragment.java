@@ -13,12 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.ohioguidestone.R;
-import org.ohioguidestone.fragments.OnboardAvatarFragment;
-import org.ohioguidestone.models.UserModel;
 
 public class OnboardNameFragment extends Fragment {
     private View fragmentView;
-    private UserModel newUser;
 
     public static OnboardNameFragment newInstance() {
         return new OnboardNameFragment();
@@ -53,11 +50,7 @@ public class OnboardNameFragment extends Fragment {
                 }
             });
 
-        continueButton.setOnClickListener((view) -> {
-            newUser = new UserModel();
-            newUser.setName(nameField.getText().toString());
-            navigateToAvatarFragment();
-        });
+
     }
 
     public interface NavigateToAvatarListener {
@@ -65,7 +58,6 @@ public class OnboardNameFragment extends Fragment {
     }
 
     public void navigateToAvatarFragment() {
-        FragmentManager manager = ((Activity) getContext()).getFragmentManager();
 
     }
 
