@@ -1,8 +1,11 @@
 package org.ohioguidestone.application;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.ohioguidestone.R;
 import org.ohioguidestone.database.DatabaseHelper;
 
 public class MindfulApplication extends Application {
@@ -11,10 +14,11 @@ public class MindfulApplication extends Application {
     // Figures out if this is the first time the application has ever been started
     // by checking to see if there is any user data in the database
     private boolean isFirstAppStartup() {
-        DatabaseHelper dbHelper = DatabaseHelper.getInstance();
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        return true;
+        // Returns true if there is no name stored, indicating first app startup
+        return !sharedPref.getBoolean(getString(R.string.saved_user_created_key), false);
     }
 
     public boolean getFirstStartup() {

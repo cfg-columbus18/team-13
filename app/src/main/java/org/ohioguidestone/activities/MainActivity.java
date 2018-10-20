@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import org.ohioguidestone.R;
 import org.ohioguidestone.application.MindfulApplication;
@@ -23,7 +25,8 @@ public class MainActivity extends Activity {
             transaction.add(R.id.onboarding_fragment_holder, OnboardNameFragment.newInstance());
             transaction.commit();
         } else {
-
+            TextView statusCheckText = findViewById(R.id.how_are_you_text);
+            statusCheckText.setVisibility(View.VISIBLE);
         }
     }
 }

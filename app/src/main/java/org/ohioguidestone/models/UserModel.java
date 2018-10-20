@@ -1,9 +1,10 @@
 package org.ohioguidestone.models;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserModel {
+public class UserModel implements Serializable {
     private String name;
     private String avatarIcon;
     private String happyPicture;
