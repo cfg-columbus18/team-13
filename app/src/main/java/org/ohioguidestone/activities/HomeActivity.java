@@ -101,7 +101,7 @@ public class HomeActivity extends Activity {
         socialActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), SettingsActivity.class);
+                Intent intent = new Intent(view.getContext(), ActivityActivity.class);
                 intent.putExtra("name", sActivity.getName());
                 intent.putExtra("description", sActivity.getDescription());
                 intent.putExtra("image", sActivity.getIcon());
@@ -114,7 +114,7 @@ public class HomeActivity extends Activity {
         relaxActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), SettingsActivity.class);
+                Intent intent = new Intent(view.getContext(), ActivityActivity.class);
                 intent.putExtra("name", rActivity.getName());
                 intent.putExtra("description", rActivity.getDescription());
                 intent.putExtra("image", rActivity.getIcon());
@@ -125,7 +125,7 @@ public class HomeActivity extends Activity {
         physicalActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), SettingsActivity.class);
+                Intent intent = new Intent(view.getContext(), ActivityActivity.class);
                 intent.putExtra("name", pActivity.getName());
                 intent.putExtra("description", pActivity.getDescription());
                 intent.putExtra("image", pActivity.getIcon());
@@ -146,7 +146,7 @@ public class HomeActivity extends Activity {
             }
         });
 
-        settings.setOnClickListener(new View.OnClickListener(){
+        summary.setOnClickListener(new View.OnClickListener(){
             @Override
             //On click function
             public void onClick(View view) {

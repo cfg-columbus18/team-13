@@ -39,7 +39,7 @@ public class ActivityActivity extends Activity {
         ImageView image = (ImageView) findViewById(R.id.activityImage);
         Resources resources = this.getResources();
         final int imageId = getResources().getIdentifier(activityImage, "drawable", this.getPackageName());
-        image.setImageDrawable(resources.getDrawable(imageId)); //set image based on data from intent
+        image.setImageResource(imageId); //set image based on data from intent
 
 
         TextView description = findViewById(R.id.activityDescription);
@@ -52,14 +52,14 @@ public class ActivityActivity extends Activity {
         decreaseTime.setOnClickListener(view->{
             int val = Integer.parseInt(minuteView.getText().toString());
             val -= 5;
-            minuteView.setText(val);
+            minuteView.setText(String.valueOf(val));
         });
 
         Button increaseTime = (Button) findViewById(R.id.activityIncreaseTime);
         increaseTime.setOnClickListener(view->{
             int val = Integer.parseInt(minuteView.getText().toString());
             val += 5;
-            minuteView.setText(val);
+            minuteView.setText(String.valueOf(val));
         });
 
         Button submit = (Button) findViewById(R.id.activitySubmit);
