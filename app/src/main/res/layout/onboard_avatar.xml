@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="org.ohioguidestone.activities.OnboardName">
+    android:background="#0aa86e"
+    android:orientation="vertical">
 
     <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:text="Hello!"
-    />
-
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:text="Pick an avatar that best"
+        android:textSize="24sp"
+        />
     <TextView
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:text="Input your nickname"
-    />
+        android:textColor="#ffffff"
+        android:text="represents you!"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        />
 
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_001_dog"
+        android:id="@+id/selected_avatar"
+        android:scaleX="4"
+        android:scaleY="4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/avatar_selection_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:layout_weight="1"/>
 </LinearLayout>

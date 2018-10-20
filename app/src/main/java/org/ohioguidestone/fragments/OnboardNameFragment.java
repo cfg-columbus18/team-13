@@ -3,6 +3,8 @@ package org.ohioguidestone.fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,9 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.models.BundleKeys;
+import org.ohioguidestone.models.UserModel;
 
 public class OnboardNameFragment extends Fragment {
     private View fragmentView;
+    private UserModel newUser;
 
     public static OnboardNameFragment newInstance() {
         return new OnboardNameFragment();
@@ -50,14 +55,26 @@ public class OnboardNameFragment extends Fragment {
                 }
             });
 
+        continueButton.setOnClickListener((view) -> {
+            newUser = new UserModel();
+            newUser.setName(nameField.getText().toString());
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BundleKeys.USER_DATA_BUNDLE_KEY, newUser);
 
+            navigateToAvatarFragment(bundle);
+        });
     }
 
-    public interface NavigateToAvatarListener {
-        void navigateToAvatarFragment();
-    }
+    public void navigateToAvatarFragment(Bundle userData) {
+        FragmentManager manager = getActivity().getFragmentManager();
+        OnboardAvatarFragment fragment = OnboardAvatarFragment.newInstance();
 
-    public void navigateToAvatarFragment() {
+        fragment.setArguments(userData);
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.onboarding_fragment_holder, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
     }
 
