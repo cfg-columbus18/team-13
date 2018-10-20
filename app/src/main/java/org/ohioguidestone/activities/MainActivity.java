@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -33,19 +34,21 @@ public class MainActivity extends Activity {
             transaction.add(R.id.onboarding_fragment_holder, OnboardNameFragment.newInstance());
             transaction.commit();
 
-            enableMainLayout();
+//            enableMainLayout();
         } else {
             enableMainLayout();
         }
     }
 
+    // Removes Fragments from activity, makes the "How are you feeling screen?" show
     public void enableMainLayout() {
         TextView statusCheckText = findViewById(R.id.how_are_you_text);
         FrameLayout fragmentHolder = findViewById(R.id.onboarding_fragment_holder);
+        Button continueButton = findViewById(R.id.feelings_continue_button);
 
-
+        fragmentHolder.setVisibility(View.GONE);
         statusCheckText.setVisibility(View.VISIBLE);
-
+        continueButton.setVisibility(View.VISIBLE);
 
         List<String> feelings = new ArrayList<>();
 
