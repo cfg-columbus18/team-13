@@ -10,8 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.application.MindfulApplication;
+import org.ohioguidestone.models.Activities;
 
-import java.util.function.Consumer;
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class HomeActivity extends Activity {
 
@@ -38,7 +43,6 @@ public class HomeActivity extends Activity {
 
         //choose activities from database based on preferences
         //socialAcitivityId = MostPopularOption based on tag selected from daily preference screen
-
 
         TextView socialActivity = (TextView) findViewById(R.id.socialActivityDescription);
         socialActivity.setOnClickListener(new View.OnClickListener(){
@@ -91,6 +95,13 @@ public class HomeActivity extends Activity {
                 startActivity(intent);
             }
         });
+      
+        Realm realm = Realm.getDefaultInstance();
+        List<Activities> activities = realm.where(Activities.class).findAll();
+        Activities x = ((RealmResults<Activities>) activities).first();
+
+        ((TextView) findViewById(R.id.socialActivityTitle)).setText(x.getName());
+
     }
 
     private View.OnClickListener toggleVisibility(int view) {
