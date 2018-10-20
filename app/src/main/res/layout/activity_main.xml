@@ -26,12 +26,15 @@
         android:id="@+id/feelings_list_view"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp" />
+        android:layout_height="400dp"
+        android:layout_margin="16dp" />
 
     <Button
+        android:id="@+id/feelings_continue_button"
+        android:text="Continue"
+        android:layout_margin="8dp"
         android:layout_gravity="center|bottom"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
