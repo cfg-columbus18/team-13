@@ -27,7 +27,7 @@ public class OnboardAvatarFragment extends Fragment {
         fragmentView = inflater.inflate(R.layout.onboard_avatar, container, false);
         List<Avatar> avatars = new ArrayList<>();
         for (int i = 0; i < 20; ++i) {
-            avatars.add(new Avatar(getActivity().getDrawable(R.drawable.ic_001_dog)));
+            avatars.add(new Avatar(getActivity().getResources().getDrawable(R.drawable.ic_001_dog)));
         }
 
         RecyclerView avatarView = fragmentView.findViewById(R.id.avatar_selection_view);
