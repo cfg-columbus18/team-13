@@ -17,4 +17,11 @@ public class UserDAO {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("SELECT * FROM User"); // something like this.
     }
+
+    public boolean hasAnyUsers() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        // db.rawQuery();
+
+        return false;
+    }
 }
