@@ -4,4 +4,7 @@
     <string name="title_activity_onboard_picture">OnboardPicture</string>
     <string name="title_activity_onboard_contacts">OnboardContacts</string>
     <string name="title_activity_onboard_avatar">OnboardAvatar</string>
+    <string name="title_activity_page">ActivityPage</string>
+    <string name="title_activity_activity">ActivityActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

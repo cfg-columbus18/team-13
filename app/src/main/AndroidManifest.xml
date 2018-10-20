@@ -28,7 +28,13 @@
             android:label="@string/title_activity_onboard_contacts" />
         <activity
             android:name=".activities.OnboardAvatar"
-            android:label="@string/title_activity_onboard_avatar"></activity>
+            android:label="@string/title_activity_onboard_avatar" />
+        <activity
+            android:name=".activities.ActivityActivity"
+            android:label="@string/title_activity_activity" />
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/title_activity_home"></activity>
     </application>
 
 </manifest>
