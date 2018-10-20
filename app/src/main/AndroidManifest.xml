@@ -18,23 +18,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.OnboardName"
-            android:label="@string/title_activity_onboard_name" />
-        <activity
-            android:name=".activities.OnboardPicture"
-            android:label="@string/title_activity_onboard_picture" />
-        <activity
-            android:name=".activities.OnboardContacts"
-            android:label="@string/title_activity_onboard_contacts" />
-        <activity
-            android:name=".activities.OnboardAvatar"
-            android:label="@string/title_activity_onboard_avatar" />
-        <activity
             android:name=".activities.ActivityActivity"
             android:label="@string/title_activity_activity" />
         <activity
             android:name=".activities.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
+            android:label="@string/title_activity_home" />
     </application>
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />

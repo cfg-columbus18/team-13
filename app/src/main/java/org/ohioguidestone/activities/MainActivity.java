@@ -1,18 +1,35 @@
 package org.ohioguidestone.activities;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.application.MindfulApplication;
+import org.ohioguidestone.fragments.OnboardNameFragment;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnboardNameFragment.NavigateToAvatarListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+
+        if (((MindfulApplication) this.getApplication()).getFirstStartup()) {
+            FragmentManager manager = this.getFragmentManager();
+
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.onboarding_fragment_holder, OnboardNameFragment.newInstance());
+            transaction.commit();
+        } else {
+
+        }
+    }
+
+
+    @Override
+    public void navigateToAvatarFragment() {
+
     }
 }
