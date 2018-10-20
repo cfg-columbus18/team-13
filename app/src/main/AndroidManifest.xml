@@ -31,4 +31,6 @@
             android:label="@string/title_activity_onboard_avatar"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
 </manifest>
