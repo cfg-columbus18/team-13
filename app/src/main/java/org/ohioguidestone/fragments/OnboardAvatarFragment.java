@@ -34,7 +34,7 @@ public class OnboardAvatarFragment extends Fragment {
         AvatarAdapter avatarAdapter = new AvatarAdapter(avatars);
 
         avatarView.setAdapter(avatarAdapter);
-        avatarView.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        avatarView.setLayoutManager(new GridLayoutManager(getActivity(), 5));
         return fragmentView;
     }
 
