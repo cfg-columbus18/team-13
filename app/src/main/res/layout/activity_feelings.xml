@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.FeelingsActivity"
+    android:orientation="vertical">
+    
+    <FrameLayout
+        android:id="@+id/onboarding_fragment_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/how_are_you_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How are you feeling?"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:textSize="26dp"
+        android:visibility="visible"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/feelings_list_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp" />
+
+    <Button
+        android:layout_gravity="center|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.ohioguidestone.R;
-import org.ohioguidestone.activities.MainActivity;
+import org.ohioguidestone.activities.FeelingsActivity;
 import org.ohioguidestone.adapter.AvatarAdapter;
 import org.ohioguidestone.models.Avatar;
-import org.ohioguidestone.models.BundleKeys;
 import org.ohioguidestone.models.UserModel;
 
 import java.util.ArrayList;
@@ -79,7 +78,7 @@ public class OnboardAvatarFragment extends Fragment {
 
             transaction.remove(this);
             transaction.commit();
-            ((MainActivity) getActivity()).enableMainLayout();
+            ((FeelingsActivity) getActivity()).enableMainLayout();
 
             //TODO save user data in sharedpreferences
         });
