@@ -1,5 +1,6 @@
 package org.ohioguidestone.adapter;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,12 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import org.ohioguidestone.R;
+import org.ohioguidestone.models.Avatar;
 
 import java.util.List;
 
 public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarItemViewHolder> {
 
-    private List<Image> avatarList;
+    private List<Avatar> avatarList;
+
+    public AvatarAdapter(List<Avatar> avatars) {
+        avatarList = avatars;
+    }
 
     @Override
     @NonNull
@@ -27,7 +33,8 @@ public class AvatarAdapter extends RecyclerView.Adapter<AvatarAdapter.AvatarItem
 
     @Override
     public void onBindViewHolder(AvatarItemViewHolder viewHolder, int position) {
-
+        Avatar avatar = avatarList.get(position);
+        viewHolder.avatarImage.setImageDrawable(avatar.getAvatar());
     }
 
     @Override
