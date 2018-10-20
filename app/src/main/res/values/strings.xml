@@ -11,4 +11,5 @@
     <string name="saved_avatar_key">org.ohioguidestone.mindful.avatar</string>
     <string name="saved_user_created_key">org.ohioguidestone.mindful.user.exists</string>
     <string name="realm_db_path">test.db</string>
+    <string name="current_feelings_key">org.ohioguidestone.mindful.feelings</string>
 </resources>

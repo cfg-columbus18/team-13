@@ -3,7 +3,9 @@ package org.ohioguidestone.activities;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +24,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
+    private boolean itemSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +72,21 @@ public class MainActivity extends Activity {
 
         RecyclerView feelingsRecyclerView = findViewById(R.id.feelings_list_view);
         feelingsRecyclerView.setVisibility(View.VISIBLE);
-        FeelingsAdapter feelingsAdapter = new FeelingsAdapter(feelings);
+        FeelingsAdapter feelingsAdapter = new FeelingsAdapter(feelings, ((view, position) -> {
+            String currentFeeling = feelings.get(position);
+            SharedPreferences sharedPref = this.getSharedPreferences(
+                    getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(getString(R.string.current_feelings_key), currentFeeling);
+            editor.commit();
+            itemSelected = true;
+        }));
+        continueButton.setOnClickListener((view) -> {
+            if(itemSelected) {
+                Intent intent = new Intent(this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         feelingsRecyclerView.setAdapter(feelingsAdapter);
         feelingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
