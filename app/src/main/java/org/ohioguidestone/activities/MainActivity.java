@@ -49,6 +49,10 @@ public class MainActivity extends Activity {
         FrameLayout fragmentHolder = findViewById(R.id.onboarding_fragment_holder);
         Button continueButton = findViewById(R.id.feelings_continue_button);
 
+        continueButton.setOnClickListener((view) -> {
+            navigateToHomePage();
+        });
+
         fragmentHolder.setVisibility(View.GONE);
         statusCheckText.setVisibility(View.VISIBLE);
         continueButton.setVisibility(View.VISIBLE);
@@ -90,5 +94,10 @@ public class MainActivity extends Activity {
 
         feelingsRecyclerView.setAdapter(feelingsAdapter);
         feelingsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void navigateToHomePage() {
+        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 }
