@@ -1,11 +1,14 @@
 package org.ohioguidestone.models;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 public class Usage extends RealmObject {
     private int rating;
     private String dateCompleted;
     private int timeSpent;
+    //private Date createdAt = new Date();
 
     public int getRating() {
 

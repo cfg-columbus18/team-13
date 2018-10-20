@@ -11,7 +11,11 @@ import android.widget.TextView;
 
 import org.ohioguidestone.R;
 import org.ohioguidestone.models.Activities;
+import org.ohioguidestone.models.Usage;
 import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import io.realm.Realm;
 
@@ -67,6 +71,19 @@ public class ActivityActivity extends Activity {
             int minutes = Integer.parseInt(minuteView.getText().toString());
 
             //store minutes and activity info
+            Realm realm = Realm.getDefaultInstance();
+            realm.executeTransaction(new Realm.Transaction() {
+                @Override
+                public void execute(Realm realm) {
+                    Activities activity = realm.where(Activities.class).equalTo("name", activityName).findFirst();
+                    Usage usage = realm.createObject(Usage.class);
+                    usage.setTimeSpent(minutes);
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    usage.setDateCompleted(simpleDateFormat.format(new Date()));
+                    activity.getUsage().add(usage);
+                }
+            });
+
 
 
             Intent intent1 = new Intent(view.getContext(), HomeActivity.class);

@@ -32,14 +32,36 @@ public class HomeActivity extends Activity {
         //get preference for activity from intent passed by daily preference page
         //string/activity_id preference =
 
-        findViewById(R.id.socialCard).setOnClickListener(toggleVisibility(R.id.socialActivityDescription));
-        findViewById(R.id.relaxCard).setOnClickListener(toggleVisibility(R.id.relaxActivityDescription));
-        findViewById(R.id.physicalCard).setOnClickListener(toggleVisibility(R.id.physicalActivityDescription));
+        findViewById(R.id.socialCard).setOnClickListener((view) -> {
+            toggleVisibility(R.id.socialActivityDescription);
+            toggleVisibility(R.id.socialButton);
+            findViewById(R.id.relaxActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.relaxButton).setVisibility(View.GONE);
+            findViewById(R.id.physicalActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.physicalButton).setVisibility(View.GONE);
+        });
+        findViewById(R.id.relaxCard).setOnClickListener((view) -> {
+            toggleVisibility(R.id.relaxActivityDescription);
+            toggleVisibility(R.id.relaxButton);
+            findViewById(R.id.socialActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.socialButton).setVisibility(View.GONE);
+            findViewById(R.id.physicalActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.physicalButton).setVisibility(View.GONE);
+        });
+        findViewById(R.id.physicalCard).setOnClickListener((view) -> {
+            toggleVisibility(R.id.physicalActivityDescription);
+            toggleVisibility(R.id.physicalButton);
+            findViewById(R.id.relaxActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.relaxButton).setVisibility(View.GONE);
+            findViewById(R.id.socialActivityDescription).setVisibility(View.GONE);
+            findViewById(R.id.socialButton).setVisibility(View.GONE);
+
+        });
 
         Realm realm = Realm.getDefaultInstance();
 
         String feeling = sharedPref.getString(getString(R.string.current_feelings_key), "fearful");
-        final RealmResults<Activities> activities =  realm.where(Activities.class).equalTo("tags.name", feeling).findAll();
+        final RealmResults<Activities> activities =  realm.where(Activities.class).equalTo("tags.name", feeling.toLowerCase()).findAll();
 
         List<Activities> socialActivities = new ArrayList<Activities>();
         List<Activities> physicalActivities = new ArrayList<Activities>();
@@ -69,13 +91,10 @@ public class HomeActivity extends Activity {
             relaxingActivities = realm.where(Activities.class).equalTo("category.name", "relaxation").findAll();
         }
 
-//        Collections.shuffle(socialActivities);
-//        Collections.shuffle(physicalActivities);
-//        Collections.shuffle(relaxingActivities);
 
-        Activities sActivity = socialActivities.get(0);
-        Activities rActivity = relaxingActivities.get(0);
-        Activities pActivity = physicalActivities.get(0);
+        Activities sActivity = socialActivities.get( (int) (Math.random() * socialActivities.size()) );
+        Activities rActivity = relaxingActivities.get((int) (Math.random() * relaxingActivities.size()) );
+        Activities pActivity = physicalActivities.get((int) (Math.random() * physicalActivities.size()) );
 
         ((TextView) findViewById(R.id.socialActivityTitle)).setText(sActivity.getName());
         ((TextView) findViewById(R.id.relaxActivityTitle)).setText(rActivity.getName());
@@ -97,7 +116,7 @@ public class HomeActivity extends Activity {
         //choose activities from database based on preferences
         //socialAcitivityId = MostPopularOption based on tag selected from daily preference screen
 
-        TextView socialActivity = (TextView) findViewById(R.id.socialActivityDescription);
+        View socialActivity = findViewById(R.id.socialButton);
         socialActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -110,7 +129,7 @@ public class HomeActivity extends Activity {
             }
         });
 
-        TextView relaxActivity = (TextView) findViewById(R.id.relaxActivityDescription);
+        View relaxActivity = findViewById(R.id.relaxButton);
         relaxActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -121,7 +140,7 @@ public class HomeActivity extends Activity {
                 startActivity(intent);
             }
         });
-        TextView physicalActivity = (TextView) findViewById(R.id.physicalActivityDescription);
+        View physicalActivity = findViewById(R.id.physicalButton);
         physicalActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -157,15 +176,13 @@ public class HomeActivity extends Activity {
         });
     }
 
-    private View.OnClickListener toggleVisibility(int view) {
-        return (v) ->  {
-            View description = findViewById(view);
-            if(description.getVisibility() == View.GONE) {
-                description.setVisibility(View.VISIBLE);
-            } else {
-                description.setVisibility(View.GONE);
-            }
-        };
+    private void toggleVisibility(int view) {
+        View description = findViewById(view);
+        if(description.getVisibility() == View.GONE) {
+            description.setVisibility(View.VISIBLE);
+        } else {
+            description.setVisibility(View.GONE);
+        }
     }
 
 

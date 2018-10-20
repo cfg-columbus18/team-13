@@ -36,16 +36,15 @@
         />
 
     <ImageView
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_001_dog"
         android:id="@+id/selected_avatar"
-        android:scaleX="4"
-        android:scaleY="4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="16dp"
-        />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
+        android:scaleX="4"
+        android:scaleY="4"
+        android:src="@drawable/ic_001_dog" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/avatar_selection_view"
