@@ -4,10 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0aa86e"
+    android:background="#8DB991"
+    android:gravity="center"
+    android:orientation="horizontal"
     tools:context="org.ohioguidestone.activities.SummaryActivity">
 
 
-
-
+    <EditText
+        android:id="@+id/summaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="none"
+        android:padding="20dp"
+        android:text="Just start doing things !"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
 </LinearLayout>
